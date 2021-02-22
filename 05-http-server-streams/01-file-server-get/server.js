@@ -25,6 +25,9 @@ server.on("request", (req, res) => {
           res.statusCode = 404;
           return res.end("File not found");
         }
+
+        res.statusCode = 500;
+        return res.end("Server error");
       });
 
       req.on("aborted", () => stream.destroy());
